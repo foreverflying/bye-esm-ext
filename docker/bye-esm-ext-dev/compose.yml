@@ -1,0 +1,27 @@
+services:
+  bye-esm-ext:
+    image: dev-node:25.2.1
+    hostname: bye-esm-ext
+    environment:
+      - TZ=${TIME_ZONE:-Pacific/Auckland}
+    volumes:
+      - type: bind
+        source: ${GIT_CONFIG_PATH:-~/.gitconfig}
+        target: /home/node/.gitconfig
+        read_only: true
+      - type: bind
+        source: ${SSH_PATH:-~/.ssh}
+        target: /home/node/.ssh
+        read_only: true
+      - type: bind
+        source: ${BASH_ALIASES_PATH:-../res/.bash_aliases}
+        target: /home/node/.bash_aliases
+        read_only: true
+      - type: bind
+        source: ${BASH_ALIASES_PATH:-../res/.bash_aliases}
+        target: /root/.bash_aliases
+        read_only: true
+      - home:/home/node
+      - ../..:/opt/workspace/bye-esm-ext
+volumes:
+  home:
