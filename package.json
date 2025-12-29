@@ -1,6 +1,6 @@
 {
   "name": "bye-esm-ext",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Help you run esm modules with commonjs style import.",
   "type": "module",
   "module": "./lib/index.min.js",
